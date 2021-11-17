@@ -11,3 +11,5 @@ Students provide real-time feedback in forms of “I am confused,” or question
 * Live “I’m confused” button during lecture - and “I’m confused” bar showing for the lecturer
 * Pre and post lecture feedback
 * Interface to review data post-lecture for both students and lecturers
+
+Some code modified from Spark Blue Django Twitter tutorial
