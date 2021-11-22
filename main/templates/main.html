@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %} home :) {% endblock %} 
+{% block styles %} {% endblock %} 
+
+{% block body %}
+<h1 style ="color:rgb(125, 125, 125);">Hi, {{ user.username }}!</h1>
+
+<div style = "text-align: center;">
+    <form method="POST" action="/">
+      {% csrf_token %}
+      <h3> I'm confused </h3>
+      <label for="confusions"> Could you:</label>
+        <select name="confusions" id="confusions">
+          <option value="slow">Slow Down</option>
+          <option value="repeat">Repeat That</option>
+          <option value="rephrase">Rephrase</option>
+          <option value="example">Provide an Example</option>
+          <option value="other">Other</option>
+        </select> <br>
+        <input type="checkbox" id="anon" name="anon" value="Anon">
+        <label for="anon"> Anonymous </label><br>
+      <input type="submit" value="Inform Instructor" />
+    </form>
+  </div>
+
+  <a href="/logout"><button>Logout</button></a>
+  
+  {% endblock %}
