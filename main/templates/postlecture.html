@@ -8,14 +8,49 @@
 
 {% block body %}
 <div>
-  <h1>postlecture</h1>
-  <div>
-    <h2>How was lecture?</h2>
-    
-  </div>
-  <div>
-    <h2>Log Out</h2>
-    
+  <h1>How Was Class?</h1>
+  <div style = "text-align: center;">
+    <form method="POST" action="/">
+      {% csrf_token %}
+      <h3> Which topic do you understand best? </h3>
+      <label for="topics"> Choose one topic:</label>
+        <select name="topics" id="topics">
+          <option value="one">Topic 1</option>
+          <option value="two">Topic 2</option>
+          <option value="three">Topic 3</option>
+          <option value="four">Topic 4</option>
+          <option value="five">Topic 5</option>
+        </select> 
+    </form>
+
+    <form method="POST" action="/">
+      {% csrf_token %}
+      <h3> Which topic do you understand least? </h3>
+      <label for="topics"> Choose one topic:</label>
+        <select name="topics" id="topics">
+          <option value="one">Topic 1</option>
+          <option value="two">Topic 2</option>
+          <option value="three">Topic 3</option>
+          <option value="four">Topic 4</option>
+          <option value="five">Topic 5</option>
+        </select>
+    </form>
+
+    <form method="POST" action="/">
+      {% csrf_token %}
+      <h3> On a scale of 1-5, with 1 being none and 5 being a lot, how much did you learn? </h3>
+      <label for="nums"> Choose a number:</label>
+        <select name="nums" id="nums">
+          <option value="one">1</option>
+          <option value="two">2</option>
+          <option value="three">3</option>
+          <option value="four">4</option>
+          <option value="five">5</option>
+        </select> <br>
+        <input type="checkbox" id="anon" name="anon" value="Anon">
+        <label for="anon"> Anonymous </label><br>
+      <input type="submit" value="Submit Feedback" />
+    </form>
   </div>
 </div>
 
