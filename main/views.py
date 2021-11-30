@@ -23,6 +23,9 @@ def main_view(request):
 def splash_view(request):
     return render(request, 'splash.html' )
 
+def postlecture_view(request):
+    return render(request, 'postlecture.html' )
+
 
 '''ACTIONS'''
 # delete a tweet routing
@@ -75,3 +78,8 @@ def signup_view(request):
 def logout_view(request):
     logout(request)
     return redirect('/splash')
+
+# endclass
+def endclass_view(request):
+    # endclass(request)
+    return redirect('/postlecture')
