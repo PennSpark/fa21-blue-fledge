@@ -1,6 +1,9 @@
 /*import poppins*/
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;400;600&display=swap');
 
+/*todo:
+1. Add selector bar to filter out courses
+2. Add gray lines to the content box */
 
 html {
     background-color: #F8F8FF;
@@ -17,6 +20,7 @@ html {
     left: 14vw;
 }
 
+
 .circle {
     position: absolute;
     top: 5%;
@@ -27,11 +31,11 @@ html {
     overflow: hidden;
     border: solid #7468F8 3px;
 }
-
 .profile {
     width: 60px;
     height: 60px;
 }
+
 
 .back {
     position: absolute;
@@ -41,7 +45,6 @@ html {
     height: 60px;
     border: dotted;
 }
-
 .arrow {
     position: absolute;
     top: 5%;
@@ -49,27 +52,39 @@ html {
     margin: auto;
     color:#7468F8;
 }
-
 .arrow:hover {
     color:#C9C5FF;
     transition: 0.25s;
 }
 
-.tablewrapper {
-    position: absolute;
-    top: 25%;
-    margin-left: 13vw;
-    margin-right: 13w;
+/* flexbox properties for the larger table
+table contains a flexbox with the header bar and the content wrapper*/
+.reviewtable {
+    margin: none;
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: column;
+
+    position: relative;
+    margin: auto;
+    top: 25vh;
     width: 74vw;
     height: 50vh;
-    overflow: auto;
-    
+
     box-shadow: 0px 1px 15px 1px rgba(0, 0, 0, 0.25);
     border-radius: 10px;
 }
 
-/* flexbox properties for the larger table*/
-.review-table {
+/*Creates overflow for additional elements
+this box wraps around the flexbox for content, and the content flexbox is scalable
+to its elements (with absolute height) so as the flexbox scales it creates
+a scroller in this overflow box*/
+.contentwrapper {
+    height: 40vh;
+    overflow:auto;     
+}
+
+.contentflex {
     margin: none;
     display: flex;
     flex-wrap: nowrap;
@@ -115,6 +130,8 @@ p {
     font-size: 1em;
     font-style: normal;
     font-weight: 400;
+    text-decoration: none;
+    color: black;
 }
 
 
@@ -132,24 +149,29 @@ as elements - my contents should be aligned to the end of the box this way*/
     text-align: center;
 }
 
-
-
 .course {width: 10%;}
-
 .lecture {
     width: 35%;
     text-align: left;
 }
-
 .date {width: 10%;}
-
 .time {width: 15%;}
-
 .confuso {width: 20%;}
-
 /* not sure why this doesn't right-align as well, 
 I want the button to be at the right end*/
 .rearrange {text-align: right;}
+.linktoclass {text-decoration: none;}
 
+.imgwrapper {
+    box-sizing: border-box;
+    position: relative;
+    width: 100%;
+    top: 38vh;
+    display:flex;
+    justify-content: center;
+}
 
+.icon{
+    height: 7vh;
+}
 
