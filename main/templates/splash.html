@@ -11,12 +11,21 @@
   <h1>REGISTER / LOGIN</h1>
   <div>
     <h2>Sign Up</h2>
-    <form method="POST" action="/signup/">
+    <form method="POST" action="/signupstudent/">
       {% csrf_token %}
       <input name="username" type="text" placeholder="Username" />
       <input name="email" type="email" placeholder="Enter Email" />
       <input name="password" type="password" placeholder="Password" />
-      <button type="submit">Sign Up</button>
+      <button type="submit">Sign Up Student</button>
+    </form>
+  </div>
+  <div>
+    <form method="POST" action="/signupteacher/">
+      {% csrf_token %}
+      <input name="username" type="text" placeholder="Username" />
+      <input name="email" type="email" placeholder="Enter Email" />
+      <input name="password" type="password" placeholder="Password" />
+      <button type="submit">Sign Up Teacher</button>
     </form>
   </div>
   <div>
