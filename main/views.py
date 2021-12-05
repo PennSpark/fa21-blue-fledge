@@ -2,23 +2,26 @@ from django.shortcuts import render, redirect
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate, login, logout
 from main.models import Tweet
+from main.models import Confusion
 from datetime import datetime
 
 '''TEMPLATE RENDERING'''
 def main_view(request):
     if not request.user.is_authenticated:
-         return redirect('/splash/')
-
-    if request.method == 'POST' and request.POST['body'] != "":
-        tweet = Tweet.objects.create(
-            body = request.POST['body'],
+        return redirect('/splash/')
+    
+    if request.method == 'POST' and request.POST['confusions'] != "":
+        confuse = Confusion.objects.create(
+            student_request = request.POST['confusions'],
             author = request.user,
             created_at = datetime.now()
         )
-        tweet.save()
+        confuse.save()
 
-    tweets = Tweet.objects.all().order_by('-created_at')
-    return render(request, 'main.html', {'tweets': tweets})
+    #tweets = Tweet.objects.all().order_by('-created_at')
+    #Confusion.objects.all().count()
+    
+    return render(request, 'main.html')
 
 def splash_view(request):
     return render(request, 'splash.html' )
