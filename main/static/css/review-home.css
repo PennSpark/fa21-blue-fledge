@@ -2,8 +2,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;400;600&display=swap');
 
 /*todo:
-1. Add selector bar to filter out courses
-2. Add gray lines to the content box */
+1. Add selector bar to filter out courses (optional feature)
+2. Add gray lines to the content box
+3. Need help with JS to re-order elements based on time/date/name etc
+4. WIP - flexboxing to ensure consistency of profile pic, back arrow, logo */
 
 html {
     background-color: #F8F8FF;

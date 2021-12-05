@@ -1,3 +1,9 @@
+<!-- IMPORTANT: 
+1. to adjust the confusometer using JS go to the .meter-fill and transform:rotate and change
+the value inside accordingly
+2. To adjust the specifiermeter level change the value within HTML
+3. To adjust the specifiermeter order change the order at the end of the CSS file*/-->
+
 <!DOCTYPE html>
 <html>
     <head>
@@ -27,15 +33,44 @@
                     <div class="meter-fill"></div>
                     <div class="meter-inner"></div>
                 </div>
-                <div class="meternumber">
-                    <h2 class="meternumber">xx%</h2>
-                </div>
+            
+            <div class="mainmeter-number">
+                <h2 class="mainmeter-number">100%</h2>
+            </div>
             </div>
             
         </div>
 
         <div class = "specifiers">
-            <h1>Could you please...?</h1>
+            <div class="specifiertext">
+                <h1 class="specifiers">Could you please...?</h1>
+            </div>
+            <div class="specifiermeter-wrap">
+                <div class="repeatyourself specifiermeter">
+                    <div class="specifiermeter-header"><p>Repeat last</p></div>
+                    <div class="specifiermeter-meter">
+                        <meter value="50" min="0" max="100" low="0" high="100"></meter>
+                    </div>
+                </div>
+                <div class="slowdown specifiermeter">
+                    <div class="specifiermeter-header"><p>Slow Down</p></div>
+                    <div class="specifiermeter-meter">
+                        <meter value="40" min="0" max="100" low="0" high="100"></meter>
+                    </div>
+                </div>
+                <div class="rephrase specifiermeter">
+                    <div class="specifiermeter-header"><p>Rephrase last</p></div>
+                    <div class="specifiermeter-meter">
+                        <meter value="25" min="0" max="100" low="0" high="100"></meter>
+                    </div>
+                </div>
+                <div class="provideexample specifiermeter">
+                    <div class="specifiermeter-header"><p>Provide Example</p></div>
+                    <div class="specifiermeter-meter">
+                        <meter value="10" min="0" max="100" low="0" high="100"></meter>
+                    </div>
+                </div>
+            </div>
         </div>
 
         <div class = "logowrapper">
