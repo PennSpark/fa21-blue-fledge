@@ -29,6 +29,13 @@ def splash_view(request):
 def postlecture_view(request):
     return render(request, 'postlecture.html' )
 
+def teacherclass_view(request):
+    return render(request, 'teacherClass.html' )
+
+def teacherpostlecture_view(request):
+    return render(request, 'teacherpostlecture.html' )
+
+
 
 '''ACTIONS'''
 # delete a tweet routing
@@ -67,8 +74,8 @@ def login_view(request):
     else:
         return redirect('/splash?error=LoginError')
 
-# signup
-def signup_view(request):
+# signupstudent
+def signupstudent_view(request):
     user = User.objects.create_user(
         username=request.POST['username'],
         password=request.POST['password'],
@@ -76,6 +83,16 @@ def signup_view(request):
     )
     login(request, user)
     return redirect('/')
+
+# signupteacher
+def signupteacher_view(request):
+    user = User.objects.create_user(
+        username=request.POST['username'],
+        password=request.POST['password'],
+        email=request.POST['email'],
+    )
+    login(request, user)
+    return redirect('/teacherClass')
 
 # logout
 def logout_view(request):
@@ -86,3 +103,7 @@ def logout_view(request):
 def endclass_view(request):
     # endclass(request)
     return redirect('/postlecture')
+
+# teacherEnd
+def teacherEnd_view(request):
+    return redirect('/teacherpostlecture')
