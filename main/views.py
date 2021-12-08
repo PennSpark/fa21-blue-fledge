@@ -1,7 +1,8 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate, login, logout
-from main.models import Tweet
+from main.models import Profile
+from main.models import ProfileManager
 from main.models import Confusion
 from datetime import datetime
 
@@ -30,6 +31,9 @@ def postlecture_view(request):
     return render(request, 'postlecture.html' )
 
 def teacherclass_view(request):
+    if not request.user.is_authenticated:
+        return redirect('/splash/')
+    #count = Confusion.objects.all().count()
     return render(request, 'teacherClass.html' )
 
 def teacherpostlecture_view(request):
@@ -76,22 +80,30 @@ def login_view(request):
 
 # signupstudent
 def signupstudent_view(request):
+    student = Profile.objects.create_profile(
+        username=request.POST['username'],
+        password=request.POST['password'],
+        email=request.POST['email'],
+    )
+    login(request, student)
+    '''
     user = User.objects.create_user(
         username=request.POST['username'],
         password=request.POST['password'],
         email=request.POST['email'],
     )
     login(request, user)
+    '''
     return redirect('/')
 
 # signupteacher
 def signupteacher_view(request):
-    user = User.objects.create_user(
+    teacher = Profile.objects.create_teacher(
         username=request.POST['username'],
         password=request.POST['password'],
         email=request.POST['email'],
     )
-    login(request, user)
+    login(request, teacher)
     return redirect('/teacherClass')
 
 # logout
