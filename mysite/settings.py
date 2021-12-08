@@ -82,7 +82,7 @@ DATABASES = {
     }
 }
 
-AUTH_USER_MODEL = 'main.Profile'
+# AUTH_USER_MODEL = 'main.Profile'
 
 
 # Password validation

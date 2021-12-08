@@ -1,9 +1,7 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate, login, logout
-from main.models import Profile
-from main.models import ProfileManager
-from main.models import Confusion
+from main.models import Confusion, Profile
 from datetime import datetime
 
 '''TEMPLATE RENDERING'''
@@ -40,31 +38,6 @@ def teacherpostlecture_view(request):
     return render(request, 'teacherpostlecture.html' )
 
 
-
-'''ACTIONS'''
-# delete a tweet routing
-def delete_view(request):
-    tweet = Tweet.objects.get(id=request.GET['id'])
-    if tweet.author == request.user:
-        tweet.delete()
-    return redirect('/')
-
-# like a tweet
-def like_tweet(request):
-    tweet = Tweet.objects.get(id=request.GET['id'])
-
-    # not yet liked
-    if len(tweet.likes.filter(username=request.user.username)) == 0:
-        tweet.likes.add(request.user)
-    
-    # liked
-    else:
-        tweet.likes.remove(request.user)
-
-    tweet.save()
-    return redirect('/')
-
-
 '''USER LOGIN/REGISTRATION/LOGOUT'''
 
 # login
@@ -74,37 +47,27 @@ def login_view(request):
 
     if user is not None:
         login(request, user)
+        if user.profile.accountType == "student":
+            pass 
+        else:
+            pass
         return redirect('/')
     else:
         return redirect('/splash?error=LoginError')
 
-# signupstudent
-def signupstudent_view(request):
-    student = Profile.objects.create_profile(
-        username=request.POST['username'],
-        password=request.POST['password'],
-        email=request.POST['email'],
-    )
-    login(request, student)
-    '''
+def signup_view(request):
     user = User.objects.create_user(
         username=request.POST['username'],
         password=request.POST['password'],
         email=request.POST['email'],
     )
     login(request, user)
-    '''
-    return redirect('/')
-
-# signupteacher
-def signupteacher_view(request):
-    teacher = Profile.objects.create_teacher(
-        username=request.POST['username'],
-        password=request.POST['password'],
-        email=request.POST['email'],
+    profile = Profile.objects.create(
+        user = user,
+        accountType = request.POST.get('account_type', "student")
     )
-    login(request, teacher)
-    return redirect('/teacherClass')
+    profile.save()
+    return redirect('/')
 
 # logout
 def logout_view(request):
