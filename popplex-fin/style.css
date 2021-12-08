@@ -134,15 +134,23 @@ img {
     padding: 0.5rem;
 }
 
+.fb-bullet-slider {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding: 0;
+}
+
 .bullets,
-.meter-bullets {
+.meter-bullets, .fb-bullets {
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
 .bullets span,
-.meter-bullets span {
+.meter-bullets span, .fb-bullets span {
     display: block;
     width: 1.5rem;
     height: 1.5rem;
@@ -162,6 +170,11 @@ img {
     border-radius: 1.5rem;
 }
 
+.fb-bullets span.active {
+    background-color: #7468F8;
+    border-radius: 1.5rem;
+    width: 6rem;
+}
 .meter-bullets span.active {
     background-color: #ffcef4;
     border-radius: 1.5rem;
@@ -312,13 +325,13 @@ form {
 }
 .feedback h3 {
     font-size: 2.2rem;
-    line-height: 2rem;
+    line-height: 4rem;
     font-family: 'Imprima', 'Poppins', sans-serif;
 }
 
 .feedback p {
     font-size: 0.9rem;
-    line-height: 3rem;
+    line-height: 2.2rem;
     font-family: 'Imprima', 'Poppins', sans-serif;
 }
 
@@ -397,8 +410,8 @@ label {
 .feedback-btn {
     display: inline-block;
     width: 50%;
-    margin: 0 4rem 2rem 4rem;
-    height: 43px;
+    margin: 1.5rem 4rem 1rem 4rem;
+    height: 38px;
     background-color: #151111;
     border: none;
     color: white;
@@ -714,9 +727,12 @@ main.sign-up-mode .sign-in-form {
     height: 90%;
     border-radius: 3.3em;
     background: white;
-    padding: 3rem;
+    padding: 2rem;
     box-shadow: 0px 3.54579px 14.3629px 2.87258px rgba(0, 0, 0, 0.25);
     z-index: 0;
+    display: flex;
+    justify-content: center;
+    align-content: center;
 }
 
 select {
@@ -734,11 +750,11 @@ select {
 }
 
 .feedback-select {
-    width: 500px;
+    width: 16rem;
     position: relative;
     color: #151111;
-    font-size: 0.5rem;
-    margin-bottom: 2rem;
+    font-size: 0.8rem;
+    margin-bottom: 1.3rem;
 }
 
 .course-select {
