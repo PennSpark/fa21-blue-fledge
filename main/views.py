@@ -26,7 +26,7 @@ def splash_view(request):
     return render(request, 'splash.html' )
 
 def postlecture_view(request):
-    return render(request, 'postlecture.html' )
+    return render(request, 'feedback.html' )
 
 def onboarding_view(request):
     return render(request, 'onboarding.html' )
