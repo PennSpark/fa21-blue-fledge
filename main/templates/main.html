@@ -1,35 +1,64 @@
-{% extends 'base.html' %}
-{% load static %}
 
-{% block title %} home :) {% endblock %} 
-{% block styles %} {% endblock %} 
+<!DOCTYPE html>
+<html lang="en">
 
-{% block body %}
-<div>
-  <h1 style ="color:rgb(125, 125, 125);">Hi, {{ user.username }}!</h1>
-  <p>xd: {{ user.profile.accountType }} </p>
-</div>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>popplex</title>
+    <link rel="stylesheet" href="../static/css/style.css">
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+</head>
 
-<div style = "text-align: center;">
-  <!--edit action to submit confusion-->
-    <form method="POST" action="/">
-      {% csrf_token %}
-      <h3> I'm confused </h3>
-      <label for="confusions"> Could you:</label>
-        <select name="confusions" id="confusions">
-          <option value="slow">Slow Down</option>
-          <option value="repeat">Repeat That</option>
-          <option value="rephrase">Rephrase</option>
-          <option value="example">Provide an Example</option>
-          <option value="other">Other</option>
-        </select> <br>
-        <input type="checkbox" id="anon" name="anon" value="Anon">
-        <label for="anon"> Anonymous </label><br>
-      <input type="submit" value="Inform Instructor" />
-    </form>
-  </div>
-  
-  <a href="/endclass"><button>End of Class</button></a>
-  <a href="/logout"><button>Logout</button></a>
-  
-  {% endblock %}
+<body>
+    <main>
+        <div class="box">
+            <div class="inner-box">
+                <div class="nav">
+                    <div class="nav-logo">
+                        <img src="../static/css/img/logo.png" alt="popplex">
+                        <h3>popplex</h3>
+                    </div>
+                    <div class="right-nav">
+                        <img src="../static/css/img/message.png" alt="message">
+                        <img src="../static/css/mg/settings.png" alt="settings">
+                        <img src="../static/css/mg/profile.png" alt="profile">
+                    </div>
+                </div>
+                <div class="content">
+                    <div class="confused-forms-wrap"> 
+                            <div class="confused-form">
+                                <div class="heading confused">
+                                    <h3>I'm confused!<span class="wave">😕</span></h3>
+                                    <h6>Don't be afraid to communicate your confusion!</h6>
+                                </div>
+                                <div class="actual-form">
+                                  <form method="POST" action="/">
+                                    {% csrf_token %}
+                                    <div class="confused-select">
+                                      <select name="confusions" id="confusions">
+                                          <option value="repeat">Repeat That?</option>
+                                          <option value="rephrase">Rephrase?</option>
+                                          <option value="example">Provide an example?</option>
+                                          <option value="slow">Slow down?</option>
+                                          <option value="other">Other</option>
+                                      </select> <br>
+                                    </div>
+                                    <a href="#"><input type="submit" value="Inform Instructor" class="feedback-btn"></a>
+                                  </form>
+                                </div>
+                            </div>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <!-- javascript -->
+    <script src="../static/css/app.js"></script>
+</body>
+
+</html>
