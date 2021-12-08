@@ -28,6 +28,13 @@ def splash_view(request):
 def postlecture_view(request):
     return render(request, 'postlecture.html' )
 
+def onboarding_view(request):
+    return render(request, 'onboarding.html' )
+
+
+
+''' TEACHER / STUDENT VIEWS '''
+
 def teacherclass_view(request):
     if not request.user.is_authenticated:
         return redirect('/splash/')
