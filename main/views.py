@@ -33,7 +33,7 @@ def teacherclass_view(request):
         return redirect('/splash/')
     #count = Confusion.objects.all().count()
 
-    # calculating confusion percentage
+    ''' (1) % students confused '''
     confused_students = set()
     confusions = Confusion.objects.all()
     for confusion in confusions:
@@ -48,8 +48,29 @@ def teacherclass_view(request):
             total_num_students += 1
 
     percent_confused = number_confused_students / total_num_students * 100.0
-    print(percent_confused)
-    return render(request, 'teacherClass.html', {'percent_confused' : percent_confused})
+
+    ''' (2) num of each type of confusion '''
+    confusion_counts = {
+        'general': 0,
+        'slow': 0,
+        'repeat': 0,
+        'rephrase': 0,
+        'example': 0,
+        'other': 0
+    }
+    for confusion in confusions:
+        confusion_type = confusion.student_request
+        confusion_counts[confusion_type] += 1
+        
+    return render(request, 'teacherClass.html', {
+        'percent_confused' : percent_confused, 
+        'num_general' : confusion_counts['general'],
+        'num_slow' : confusion_counts['slow'],
+        'num_repeat' : confusion_counts['repeat'],
+        'num_rephrase' : confusion_counts['rephrase'],
+        'num_example' : confusion_counts['example'],
+        'num_other' : confusion_counts['other'],
+    })
 
 def teacherpostlecture_view(request):
     return render(request, 'teacherpostlecture.html' )
