@@ -7,7 +7,7 @@ from datetime import datetime
 '''TEMPLATE RENDERING'''
 def main_view(request):
     if not request.user.is_authenticated:
-        return redirect('/splash/')
+        return redirect('/onboarding/')
     
     if request.method == 'POST' and request.POST['confusions'] != "":
         confuse = Confusion.objects.create(
