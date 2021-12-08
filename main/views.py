@@ -32,7 +32,24 @@ def teacherclass_view(request):
     if not request.user.is_authenticated:
         return redirect('/splash/')
     #count = Confusion.objects.all().count()
-    return render(request, 'teacherClass.html' )
+
+    # calculating confusion percentage
+    confused_students = set()
+    confusions = Confusion.objects.all()
+    for confusion in confusions:
+        person = confusion.author.username
+        confused_students.add(person)
+    number_confused_students = len(confused_students)
+    
+    total_num_students = 0
+    students = Profile.objects.all()
+    for student in students:
+        if student.accountType == "student":
+            total_num_students += 1
+
+    percent_confused = number_confused_students / total_num_students * 100.0
+    print(percent_confused)
+    return render(request, 'teacherClass.html', {'percent_confused' : percent_confused})
 
 def teacherpostlecture_view(request):
     return render(request, 'teacherpostlecture.html' )
