@@ -25,6 +25,12 @@ def main_view(request):
 def splash_view(request):
     return render(request, 'splash.html' )
 
+def student_view(request):
+    return render(request, 'studentHome.html' )
+
+def teacher_view(request):
+    return render(request, 'teacherHome.html' )
+
 def postlecture_view(request):
     return render(request, 'postlecture.html' )
 
@@ -47,11 +53,10 @@ def login_view(request):
 
     if user is not None:
         login(request, user)
-        if user.profile.accountType == "student":
-            pass 
+        if user.profile.accountType == "teacher":
+            return redirect('/teacher')
         else:
-            pass
-        return redirect('/')
+            return redirect('/')
     else:
         return redirect('/splash?error=LoginError')
 

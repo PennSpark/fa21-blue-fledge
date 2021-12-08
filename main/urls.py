@@ -14,4 +14,6 @@ urlpatterns = [
     path('postlecture/', views.postlecture_view, name='postlecture_view'),
     path('signup/', views.signup_view, name='signup_view'),
 
+    path('student/', views.student_view, name='student_view'),
+    path('teacher/', views.teacher_view, name='teacher_view'),
 ]
