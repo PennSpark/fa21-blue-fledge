@@ -48,10 +48,10 @@ def login_view(request):
     if user is not None:
         login(request, user)
         if user.profile.accountType == "student":
-            pass 
+            return redirect('/')
         else:
-            pass
-        return redirect('/')
+            return redirect('/teacherClass')
+        #return redirect('/')
     else:
         return redirect('/splash?error=LoginError')
 
