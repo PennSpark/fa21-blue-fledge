@@ -215,7 +215,7 @@ img {
 }
 
 form {
-    max-width: 250px;
+    max-width: 320px;
     width: 100%;
     margin: 0 auto;
     height: 100%;
@@ -409,7 +409,7 @@ label {
 
 .feedback-btn {
     display: inline-block;
-    width: 50%;
+    width: 60%;
     margin: 1.5rem 4rem 1rem 4rem;
     height: 38px;
     background-color: #151111;
@@ -421,8 +421,22 @@ label {
     transition: 0.3s;
 }
 
+.bottom-btn {
+    width: 100%;
+    height: 38px;
+    margin: 0 1rem;
+    padding: 0 1rem;
+    background-color: #151111;
+    border: none;
+    color: white;
+    cursor: pointer;
+    border-radius: 0.8rem;
+    font-size: 0.8rem;
+    transition: 0.3s;
+}
+
 .sign-btn:hover,
-.feedback-btn:hover {
+.feedback-btn:hover, .bottom-btn:hover {
     background-color: #7468F8;
 }
 
@@ -521,6 +535,11 @@ main.sign-up-mode .sign-in-form {
     height: 90%;
 }
 
+.bottom-content {
+    margin-left: 68%;
+    justify-content: space-between;
+    display: flex;
+}
 .content-left {
     height: 80%;
     width: 45%;
@@ -695,7 +714,7 @@ main.sign-up-mode .sign-in-form {
 
 .confused-wrap {
     position: relative;
-    height: 80px;
+    height: 70px;
     display: flex;
     justify-content: center;
     align-content: center;
