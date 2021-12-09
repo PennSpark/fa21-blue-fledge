@@ -130,3 +130,7 @@ def endclass_view(request):
 # teacherEnd
 def teacherEnd_view(request):
     return redirect('/teacherpostlecture')
+
+# teacherReview
+def profPostlecture_view(request):
+    return render(request, 'profPostlecture.html' )

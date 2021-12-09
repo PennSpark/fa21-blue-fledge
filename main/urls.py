@@ -13,5 +13,6 @@ urlpatterns = [
     path('endclass/', views.endclass_view, name='endclass_view'),
     path('postlecture/', views.postlecture_view, name='postlecture_view'),
     path('signup/', views.signup_view, name='signup_view'),
-    path('onboarding/', views.onboarding_view, name='onboarding_view')
+    path('onboarding/', views.onboarding_view, name='onboarding_view'),
+    path('profPostlecture/', views.profPostlecture_view, name='profPostlecture_view')
 ]
