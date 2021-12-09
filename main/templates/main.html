@@ -38,6 +38,7 @@
                                     {% csrf_token %}
                                     <div class="confused-select">
                                       <select name="confusions" id="confusions">
+                                        <option value="" disabled selected hidden>Could you...</option>
                                           <option value="repeat">Repeat That?</option>
                                           <option value="rephrase">Rephrase?</option>
                                           <option value="example">Provide an example?</option>
@@ -47,6 +48,10 @@
                                     </div>
                                     <a href="#"><input type="submit" value="Inform Instructor" class="feedback-btn"></a>
                                   </form>
+                                  <span style="display: inline;">
+                                    <a href="/logout"><button class = "feedback-btn"> Logout </button></a> 
+                                    <a href="/postlecture"><button class = "feedback-btn"> End of Class </button></a> 
+                                </span>
                                 </div>
                             </div>
                     </div>
@@ -55,10 +60,12 @@
             </div>
 
         </div>
+        
+        
     </main>
 
     <!-- javascript -->
-    <script src="../static/css/app.js"></script>
+    <script src="../static/js/app.js"></script>
 </body>
 
 </html>

@@ -8,19 +8,22 @@ from datetime import datetime
 def main_view(request):
     if not request.user.is_authenticated:
         return redirect('/onboarding/')
-    
-    if request.method == 'POST' and request.POST['confusions'] != "":
-        confuse = Confusion.objects.create(
-            student_request = request.POST['confusions'],
-            author = request.user,
-            created_at = datetime.now()
-        )
-        confuse.save()
 
-    #tweets = Tweet.objects.all().order_by('-created_at')
-    #Confusion.objects.all().count()
-    
-    return render(request, 'main.html')
+    if not request.user.profile.accountType == "student":
+        return redirect('/teacherClass')
+    else:
+        if request.method == 'POST' and request.POST['confusions'] != "":
+            confuse = Confusion.objects.create(
+                student_request = request.POST['confusions'],
+                author = request.user,
+                created_at = datetime.now()
+            )
+            confuse.save()
+
+        #tweets = Tweet.objects.all().order_by('-created_at')
+        #Confusion.objects.all().count()
+        
+        return render(request, 'main.html')
 
 def splash_view(request):
     return render(request, 'splash.html' )
