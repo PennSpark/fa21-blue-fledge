@@ -1,0 +1,273 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;400;600&display=swap');
+
+body {
+    overflow:hidden;
+    background: #F8F8FF;
+}
+
+.main-wrap {
+    display: flex;
+    flex-direction: column;
+    overflow: auto;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+}
+
+.miscellaneous {
+    width: 100vw;
+    height: 15vh;
+    position: relative;
+}
+
+.content-wrap {
+    height: 68vh;
+    width: 60vw;
+    display: flex;
+    align-items:center;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.icon-wrap {
+    height:15vh;
+    width: 60vw;  
+    display: flex;
+    justify-content: center;
+}
+
+
+.circle {
+    position: absolute;
+    top: 27%;
+    right: 5%;
+    width: 3.5em;
+    height: 3.5em;
+    border-radius: 50%;
+    overflow: hidden;
+    border: solid #7468F8 0.35em;
+    box-sizing: border-box;
+}
+.profile {
+    width: 100%;
+    height: 100%;
+    object-fit: fill;
+    margin: auto;
+}
+
+.arrow {
+    position: absolute;
+    top: 27%;
+    left: 1.5%;
+    margin: auto;
+    color:#7468F8;
+}
+.arrow:hover {
+    color:#C9C5FF;
+    transition: 0.25s;
+}
+
+.lecture-title {
+    position: absolute;
+    height: 100%;
+    left: 7%;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+}
+
+h1 {
+    vertical-align: middle;
+    font-family: Poppins;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 4em;
+    color: #7D7D7D;
+}
+
+.class-title {
+    position: absolute;
+    top: 33%;
+    right: 12%;
+    box-shadow: 0px 1px 40px 1px rgba(0, 0, 0, 0.25);
+    border-radius: 10px;
+    width: 130px;
+}
+
+h2 {
+    line-height: 0;
+    font-family: Poppins;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 20px;
+    color: #C8C8C8;
+    text-align: center;
+}
+
+.content-box {
+    background: #FFFFFF;
+    box-shadow: 0px 0.965559px 14.4834px 0.965559px rgba(0, 0, 0, 0.25);
+    border-radius: 9.65559px;
+    margin: 10px;
+}
+
+.average-confusion-wrap {
+    width: 30vh;
+    height: 30vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.average-confusion-main {
+    color: #B7B1FA;
+    width: 100%;
+    height: 60%;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+}
+
+.average-confusion-main-text-wrap {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;    
+}
+
+.average-confusion-main-text {
+    margin: 0; 
+    font-family: Poppins;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 20vh;
+    vertical-align: baseline;
+    height: 50%;
+}
+
+.average-confusion-subhead {
+    vertical-align: top;
+    text-align: center;
+    font-family: Poppins;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 3vh;
+    line-height:100%;
+    color: #575252;
+}
+
+.average-point-wrap {
+    width: 68vh;
+    height: 30vh;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    align-items: center;
+    align-content: center;
+}
+
+.average-point-text-wrap {
+    width: 100%;
+    height: 20%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+h3 {
+    vertical-align: center;
+    text-align: center;
+    font-family: Poppins;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 2.7vh;
+    line-height: 3.1vh;
+}
+
+.average-point-meter-wrap {
+    height: 80%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.average-point-meter {
+    width: 100%;
+    height: 24%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.average-point-meter-bar {
+    width: 80%;
+    height:120%;
+    margin:0;
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+meter {
+    margin-left: 5%;
+    width: 100%;
+    height: 120%;
+}
+
+.indicator {
+    width: 15%;
+    display: flex;
+    justify-content: flex-end;
+    font-family: Poppins;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 2.8vh;
+    letter-spacing: 0.285px;
+    color: #575252;
+}
+
+.average-point-meter-title {
+    position: absolute;
+    left: 7%;
+    font-family: Poppins;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 2.6vh;
+    display: flex;
+    align-items: center;
+    letter-spacing: 0.285px;
+    color: #7B7979;
+}
+
+
+
+meter::-webkit-meter-bar {
+    background: #E9E9E9; /* Required to get rid of the default background property */
+    border: 0;
+    box-sizing: border-box;
+    border-radius: 5px;
+}
+
+  meter::-webkit-meter-optimum-value {
+    background: #B7B1FA;
+    border-radius:5px;
+    transition: width .2s;
+}
+
+.most-understood-wrap, .least-understood-wrap, .average-enjoyment {
+    width: 30vh;
+    height: 30vh;
+    display: flex;
+    flex-direction: column;
+}
+
+p.topics {
+    font-size:2vh;
+}
+
+.enjoyment {
+    font-size: 16vh;
+    color: #F3AFE8;
+}
