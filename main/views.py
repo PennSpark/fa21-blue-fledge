@@ -57,7 +57,7 @@ def teacherclass_view(request):
         if student.accountType == "student":
             total_num_students += 1
 
-    percent_confused = number_confused_students / total_num_students * 100.0
+    percent_confused = str(round(number_confused_students / total_num_students * 100.0, 2))
 
     ''' (2) num of each type of confusion '''
     confusion_counts = {
