@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>popplex</title>
+    <link rel="stylesheet" href="../static/css/style.css">
+</head>
+
+<body>
+    <main>
+        <div class="box">
+            <div class="inner-box">
+                <div class="forms-wrap">
+                    <form method="POST" action="/login/" class="sign-in-form" autocomplete="off">
+                        {% csrf_token %}
+                        <div class="logo">
+                            <img src="../static/img/logo.png" alt="popplex">
+                            <h3>popplex</h3>
+                        </div>
+                        <div class="heading">
+                            <h2>Welcome!</h2>
+                            <h6>Don't have an account? </h6>
+                            <a href="#" class="toggle"> Sign up!</a>
+                        </div>
+                        <div class="actual-form">
+                            <div class="input-wrap">
+                                <input name="username" type="text" minlength="5" class="input-field" autocomplete="off" required>
+                                <label>Name</label>
+                            </div>
+                            <div class="input-wrap">
+                                <input name="password" type="password" minlength="5" class="input-field" autocomplete="off" required>
+                                <label>Password</label>
+                            </div>
+                            
+                            <input type="submit" class="sign-btn" value="Sign in">
+                        </div>
+                    </form>
+                    <form method="POST" action="/signup/" class="sign-up-form" autocomplete="off">
+                        {% csrf_token %}
+                        <div class="logo">
+                            <img src="../static/img/logo.png" alt="Popplex">
+                            <h3>popplex</h3>
+                        </div>
+                        <div class="heading">
+                            <h2>Get Started</h2>
+                            <h6>Already have an account? </h6>
+                            <a href="#" class="toggle"> Sign in!</a>
+                        </div>
+                        <div class="actual-form">
+                            <div class="input-wrap">
+                                <input name="username" type="text" minlength="5" class="input-field" autocomplete="off" required>
+                                <label>Name</label>
+                            </div>
+                            <div class="input-wrap">
+                                <input name="email" type="email" minlength="5" class="input-field" autocomplete="off" required>
+                                <label>Email</label>
+                            </div>
+                            <div class="input-wrap">
+                                <input name="password" type="password" minlength="5" class="input-field" autocomplete="off" required>
+                                <label>Password</label>
+                            </div>
+                            <select name="account_type" id="account_type">
+                              <option value="student">Student</option>
+                              <option value="teacher">Teacher</option>
+                            </select>
+                            <input type="submit" class="sign-btn" value="Sign up">
+                        </div>
+                    </form>
+                </div>
+                <div class="carousel">
+                    <div class="meter-bullet-slider">
+                        <div class="meter-bullets">
+                            <span class="active" data-value="1"></span>
+                            <span data-value="2"></span>
+                            <span data-value="3"></span>
+                            <span data-value="4"></span>
+                            <span data-value="5"></span>
+                        </div>
+                    </div>
+                    <div class="meters-wrapper">
+                        <img id="pastel-meter" src="../static/img/pastel-meter.png" alt="pastel-meter">
+                        <img src="../static/img/mt-1.png" alt="" class="meter mt-1 show">
+                        <img src="../static/img/mt-2.png" alt="" class="meter mt-2">
+                        <img src="../static/img/mt-3.png" alt="" class="meter mt-3">
+                        <img src="../static/img/mt-4.png" alt="" class="meter mt-4">
+                        <img src="../static/img/mt-5.png" alt="" class="meter mt-5">
+                    </div>
+                    
+                </div>
+            </div>
+
+        </div>
+
+    </main>
+
+    <!-- javascript -->
+    <script src="../static/js/app.js"></script>
+</body>
+
+</html>
